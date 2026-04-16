@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iMaxDigital.com — Website Portfolio</title>
+<meta name="description" content="Explore our completed website projects. Find your perfect design and get started today.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08080c;
+    --bg-elevated: #111118;
+    --bg-card: #12121a;
+    --text: #eae8e3;
+    --text-muted: #7d7a86;
+    --orange: #ff6b2b;
+    --orange-light: #ff8f5a;
+    --orange-glow: rgba(255, 107, 43, 0.25);
+    --orange-subtle: rgba(255, 107, 43, 0.08);
+    --radius: 16px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 36px;
+    background: rgba(8, 8, 12, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .logo {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--orange); }
+
+  .topbar-cta {
+    padding: 9px 22px;
+    background: transparent;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .topbar-cta:hover {
+    background: var(--orange);
+    color: var(--bg);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 24px 60px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 10%; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,107,43,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 50%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,43,0.2), transparent);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid rgba(255,107,43,0.25);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 36px;
+    animation: fadeInDown 0.8s ease both;
+    position: relative;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+    animation: fadeInUp 0.8s ease 0.15s both;
+    position: relative;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-top: 24px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+    position: relative;
+  }
+
+  .hero-stats {
+    margin-top: 52px;
+    display: flex;
+    gap: 52px;
+    animation: fadeInUp 0.8s ease 0.45s both;
+    position: relative;
+  }
+
+  .hero-stats .stat { text-align: center; }
+
+  .hero-stats .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* ─── FILTER BAR ─── */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 40px 24px 20px;
+    animation: fadeInUp 0.8s ease 0.55s both;
+  }
+
+  .filter-btn {
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: var(--orange-subtle);
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 40px 24px 160px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  /* ─── CARD ─── */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
+    cursor: pointer;
+    opacity: 0;
+    animation: cardIn 0.5s ease forwards;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,107,43,0.2);
+    box-shadow: 0 24px 60px -16px rgba(0,0,0,0.6),
+                0 0 50px -20px var(--orange-glow);
+  }
+
+  .card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg-elevated);
+  }
+
+  .card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card:hover .card-thumb img { transform: scale(1.05); }
+
+  .card-thumb .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(8,8,12,0.85) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 22px;
+  }
+
+  .card:hover .card-thumb .overlay { opacity: 1; }
+
+  .overlay .view-btn {
+    padding: 11px 30px;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.84rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transform: translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    text-decoration: none;
+  }
+
+  .card:hover .overlay .view-btn { transform: translateY(0); }
+
+  .card-info { padding: 20px 22px; }
+
+  .card-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .card-info .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .card-meta .tag {
+    padding: 3px 11px;
+    background: var(--orange-subtle);
+    color: var(--orange);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .card-thumb .placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: rgba(255,107,43,0.14);
+    background: linear-gradient(145deg, #111118 0%, #161624 100%);
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  /* ─── LOADING STATE ─── */
+  .loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+  }
+
+  .loading::after {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 24px;
+    border: 2px solid var(--orange-subtle);
+    border-top-color: var(--orange);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-top: 12px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ─── FLOATING CTA ─── */
+  .floating-cta {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 14px 12px 28px;
+    background: rgba(12, 12, 18, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,107,43,0.18);
+    border-radius: 100px;
+    box-shadow: 0 16px 60px -12px rgba(0,0,0,0.7),
+                0 0 80px -30px var(--orange-glow);
+    animation: floatUp 0.8s ease 1s both;
+  }
+
+  .floating-cta .cta-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .floating-cta .cta-btn {
+    padding: 13px 32px;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.88rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .floating-cta .cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--orange-glow);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .topbar { padding: 14px 20px; }
+    .hero { min-height: 58vh; padding: 100px 20px 40px; }
+    .hero-stats { gap: 28px; }
+    .gallery {
+      grid-template-columns: 1fr;
+      padding-bottom: 130px;
+    }
+    .floating-cta {
+      left: 16px; right: 16px;
+      transform: none;
+      bottom: 18px;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 12px 16px;
+    }
+    .floating-cta .cta-text { display: none; }
+    .floating-cta .cta-btn {
+      width: 100%;
+      text-align: center;
+      padding: 15px 24px;
+      font-size: 0.95rem;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 2rem; }
+    .hero-stats .stat-number { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOP BAR ═══════ -->
+<nav class="topbar">
+  <a href="#" class="logo">iMax<span>Digital</span>.com</a>
+  <a href="https://wa.me/5500000000000?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20services." class="topbar-cta" target="_blank" rel="noopener">Get in Touch</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Our Work
+  </div>
+  <h1>Websites we've <span class="highlight">built & delivered</span></h1>
+  <p>Browse through our completed projects. See something you like? Pick a model and let's build yours.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number" id="countProjects">—</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Customizable</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">48h</div>
+      <div class="stat-label">Fast Delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FILTER BAR ═══════ -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="landing-page">Landing Page</button>
+  <button class="filter-btn" data-filter="business">Business</button>
+  <button class="filter-btn" data-filter="e-commerce">E-commerce</button>
+  <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+  <button class="filter-btn" data-filter="blog">Blog</button>
+</div>
+
+<!-- ═══════ GALLERY ═══════ -->
+<div class="gallery" id="gallery">
+  <div class="loading">Loading projects...</div>
+</div>
+
+<!-- ═══════ FLOATING CTA ═══════ -->
+<div class="floating-cta">
+  <span class="cta-text">Found a design you love?</span>
+  <a href="https://wa.me/5500000000000?text=Hi!%20I%20found%20a%20website%20model%20I%20like%20and%20want%20to%20get%20started." class="cta-btn" target="_blank" rel="noopener">
+    I want my website →
+  </a>
+</div>
+
+<script>
+  // ── State ──
+  let PROJECTS = [];
+  const gallery = document.getElementById('gallery');
+  const countEl = document.getElementById('countProjects');
+
+  // ── Load projects from JSON file ──
+  async function loadProjects() {
+    try {
+      const res = await fetch('projects.json');
+      if (!res.ok) throw new Error('Failed to load');
+      PROJECTS = await res.json();
+      countEl.textContent = PROJECTS.length;
+      renderCards();
+    } catch (err) {
+      gallery.innerHTML = '<div class="empty-state">Could not load projects. Make sure projects.json exists.</div>';
+      console.error('Error loading projects.json:', err);
+    }
+  }
+
+  // ── Render Cards ──
+  function renderCards(filter = 'all') {
+    gallery.innerHTML = '';
+    const filtered = filter === 'all'
+      ? PROJECTS
+      : PROJECTS.filter(p => p.tag === filter);
+
+    if (filtered.length === 0) {
+      gallery.innerHTML = '<div class="empty-state">No projects in this category yet.</div>';
+      return;
+    }
+
+    filtered.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.animationDelay = `${i * 0.07}s`;
+
+      // If thumb path exists, use <img>. Otherwise show placeholder initial.
+      const thumbHTML = p.thumb
+        ? `<img src="${p.thumb}" alt="${p.title}" loading="lazy" decoding="async"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="placeholder" style="display:none">${p.title.charAt(0)}</div>`
+        : `<div class="placeholder">${p.title.charAt(0)}</div>`;
+
+      const tagLabel = p.tag.replace(/-/g, ' ');
+
+      card.innerHTML = `
+        <div class="card-thumb">
+          ${thumbHTML}
+          <div class="overlay">
+            <a href="${p.link}" class="view-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+              View Project
+            </a>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3>${p.title}</h3>
+          <div class="card-meta">
+            <span class="tag">${tagLabel}</span>
+            <span>${p.desc}</span>
+          </div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => window.open(p.link, '_blank'));
+      gallery.appendChild(card);
+    });
+  }
+
+  // ── Filters ──
+  document.getElementById('filterBar').addEventListener('click', (e) => {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderCards(e.target.dataset.filter);
+  });
+
+  // ── Init ──
+  loadProjects();
+</script>
+
+</body>
+</html>
