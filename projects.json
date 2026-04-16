@@ -1,24 +1,24 @@
 [
   {
-    "title": "Dental Clinic",
+    "title": "Online Courses",
     "tag": "business",
     "link": "https://drive.google.com/YOUR-LINK-HERE",
-    "thumb": "images/dental-clinic.jpg",
-    "desc": "Modern clinic website"
+    "thumb": "images/capa-psacademy.jpg",
+    "desc": "Modern Course Website"
   },
   {
-    "title": "Fashion Store",
+    "title": "Wellness Store",
     "tag": "e-commerce",
     "link": "https://drive.google.com/YOUR-LINK-HERE",
-    "thumb": "images/fashion-store.jpg",
+    "thumb": "images/capa-onewithwellness.jpg",
     "desc": "Full responsive e-commerce"
   },
   {
-    "title": "Law Firm",
+    "title": "Realty Website",
     "tag": "business",
     "link": "https://drive.google.com/YOUR-LINK-HERE",
-    "thumb": "images/law-firm.jpg",
-    "desc": "Professional online presence"
+    "thumb": "images/capa-tenkillerlake.jpg",
+    "desc": "Professional Realty Website"
   },
   {
     "title": "Japanese Restaurant",
